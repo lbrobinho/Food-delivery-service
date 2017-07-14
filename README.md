@@ -50,53 +50,41 @@ Searching restaurants, getting menus, ordering foods and paying for an order.
 
 * Restaurant
 
-  * xxx.com/restaurants
+  * food.com/restaurants
 
-    * GET: Passing name(optional), page and size (optional) as parameters and get list of restaurants
+     * GET: Passing name(optional), page and size (optional) as parameters and get list of restaurants
 
-    * DELETE: Delete all restaurants
+     * DELETE: Delete all restaurants
 
-    * POST: Upload a bunch of restaurants
+     * POST: Upload a bunch of restaurants
 
-*foo.com/restaurants/[id]
+  * food.com/restaurants/[id]
 
-GET get details of the restaurant
+     * GET: Get details of the restaurant
 
-DELETE delete the restaurant
+     * DELETE: Delete the restaurant
 
-GET /restaurants/[id]/menus to get the menus of the restaurant
+  * food.com/restaurants/[id]/menu
 
-foo.com/menus
+     * POST: Upload a menus with items
 
-POST create a list of menus
+     * GET: Passing page and size (optional) as parameters and get a menu
 
-GET passing page and size (optional) as parameters and get list of menus
+     * DELETE: Delete the menu
 
-DELETE delete all menus
+  * food.com/restaurants/[id]/menu/[itemId]
 
-foo.com/menus/[id]
+     * GET: menu items by item id
 
-GET get info of the menu
+     * DELETE: delete a menu item
+   
+   * food.com/restaurants/[id]/menu/[itemId]/price
 
-DELETE delete a menu
+     * GET: Get the price of item
+     
+     * Post: upload price
 
-foo.com/menu_items
-
-GET passing page and size (optional) as parameters and get list of menu items
-
-POST upload a list of menu items
-
-DELETE delete all menu items
-
-foo.com/menu_items/[id]
-
-GET menu items by menu id
-
-DELETE delete a menu item
-
-GET /menu_items/[id]/price to get the price of it
-
-Order
+* Order
 
 foo.com/orders
 
