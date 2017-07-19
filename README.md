@@ -86,18 +86,22 @@ Searching restaurants, getting menus, ordering foods and paying for an order.
 
 * Order
 
-foo.com/orders
+   * food.com/orders
 
-POST create a list of orders
+     * POST: create a list of orders
 
-GET passing page and size (optional) as parameters and get list of orders
+     * GET: passing page and size (optional) as parameters and get list of orders
+     
 
-foo.com/orders/[id]
+   * food.com/orders/[id]?[orderId]
+  
+     * GET: get specifical order
+     
+     * DELETE: delete an order by orderId
 
-GET query info
-foo.com/orders/[id]/is_paid
+   * food.com/orders/[id]/paid
 
-GET get if the order is paid
+    * GET get if the order is paid
 
 PUT set if it is paid
 
