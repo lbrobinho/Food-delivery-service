@@ -50,7 +50,7 @@ Searching restaurants, getting menus, ordering foods and paying for an order.
 
 * Restaurant
 
-  * food.com/restaurants
+  * FoodDelivery.com/restaurants
 
      * GET: Passing name(optional), page and size (optional) as parameters and get list of restaurants
 
@@ -58,13 +58,13 @@ Searching restaurants, getting menus, ordering foods and paying for an order.
 
      * POST: Upload a bunch of restaurants
 
-  * food.com/restaurants/[id]
+  * foodDelivery.com/restaurants/[id]
 
      * GET: Get details of the restaurant
 
      * DELETE: Delete the restaurant
 
-  * food.com/restaurants/[id]/menu
+  * foodDelivery.com/restaurants/[id]/menu
 
      * POST: Upload a menus with items
 
@@ -72,13 +72,13 @@ Searching restaurants, getting menus, ordering foods and paying for an order.
 
      * DELETE: Delete the menu
 
-  * food.com/restaurants/[id]/menu/[itemId]
+  * foodDelivery.com/restaurants/[id]/menu/[itemId]
 
      * GET: menu items by item id
 
      * DELETE: delete a menu item
    
-   * food.com/restaurants/[id]/menu/[itemId]/price
+   * foodDelivery.com/restaurants/[id]/menu/[itemId]/price
 
      * GET: Get the price of item
      
@@ -93,7 +93,7 @@ Searching restaurants, getting menus, ordering foods and paying for an order.
      * GET: passing page and size (optional) as parameters and get list of orders
      
 
-   * food.com/orders/[id]?[orderId]
+   * food.com/orders/[id]
   
      * GET: get specifical order
      
@@ -101,27 +101,30 @@ Searching restaurants, getting menus, ordering foods and paying for an order.
 
    * food.com/orders/[id]/paid
 
-    * GET get if the order is paid
+     * GET: get if order is paid
 
-PUT set if it is paid
+     * PUT set order paid
 
-foo.com/orders/[id]/is_cancelled
+   * food.com/orders/[id]/cancelled
 
-GET get if the order is cancelled
+     * GET: get if the order is cancelled
 
-PUT set if it is cancelled
+     * PUT: set cancelled
 
-Payment
+ * Payment
 
-foo.com/payment
+   * food.com/payment
 
-GET passing page and size (optional) as parameters and get list of payments
+     * GET: passing page and size (optional) as parameters and get list of payments
 
-POST create a payment
+     * POST: create a payment
 
-foo.com/payment/[id]
+   * food.com/payment/[id]
 
-GET Return its info
+     * GET: Return payment information
+   
+  Delivery
+    * get: get the estimated delivery time
 
 
  
