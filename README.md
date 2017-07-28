@@ -50,39 +50,28 @@ Searching restaurants, getting menus, ordering foods and paying for an order.
 
 * Restaurant
 
-  * FoodDelivery.com/restaurants
-
-     * GET: Passing name(optional), page and size (optional) as parameters and get list of restaurants
-
-     * DELETE: Delete all restaurants
-
+  * xxx.com/restaurants
+     
      * POST: Upload a bunch of restaurants
 
-  * foodDelivery.com/restaurants/[id]
+     * GET: Passing  page and size (optional) as parameters and get list of restaurants
 
-     * GET: Get details of the restaurant
+     * DELETE: Delete all restaurants
+     
+   * xxx.com/restaurants/{restaurantName}
 
-     * DELETE: Delete the restaurant
+     * GET: get details of the restaurant according to the name of restaurant
 
-  * foodDelivery.com/restaurants/[id]/menu
+     * DELETE: delete the restaurant
 
-     * POST: Upload a menus with items
+  * xxx.com/restaurants/{restaurantName}/menu
 
-     * GET: Passing page and size (optional) as parameters and get a menu
+     * POST: Upload a menus of specifical restaurant
+
+     * GET: Passing page and size (optional) as parameters and get a menu, response is food, price and description
 
      * DELETE: Delete the menu
-
-  * foodDelivery.com/restaurants/[id]/menu/[itemId]
-
-     * GET: menu items by item id
-
-     * DELETE: delete a menu item
-   
-   * foodDelivery.com/restaurants/[id]/menu/[itemId]/price
-
-     * GET: Get the price of item
      
-     * Post: upload price
 
 * Order
 
