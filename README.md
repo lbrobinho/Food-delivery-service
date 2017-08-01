@@ -75,26 +75,26 @@ Searching restaurants, getting menus, ordering foods and paying for an order.
 
 * Order
 
-   * food.com/orders
+   * xxx.com/orders
 
      * POST: create a list of orders
 
      * GET: passing page and size (optional) as parameters and get list of orders
      
 
-   * food.com/orders/[id]
+   * xxx.com/orders/[id]
   
      * GET: get specifical order
      
      * DELETE: delete an order by orderId
 
-   * food.com/orders/[id]/paid
+   * xxx.com/orders/[id]/paid
 
      * GET: get if order is paid
 
      * PUT set order paid
 
-   * food.com/orders/[id]/cancelled
+   * xxx.com/orders/[id]/cancelled
 
      * GET: get if the order is cancelled
 
@@ -102,13 +102,13 @@ Searching restaurants, getting menus, ordering foods and paying for an order.
 
  * Payment
 
-   * food.com/payment
+   * xxx.com/payment
 
      * GET: passing page and size (optional) as parameters and get list of payments
 
      * POST: create a payment
 
-   * food.com/payment/[id]
+   * xxx.com/payment/[id]
 
      * GET: Return payment information
    
