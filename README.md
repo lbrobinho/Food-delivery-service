@@ -14,7 +14,7 @@ Searching restaurants, getting menus, ordering foods and paying for an order.
     6.After payment is made successfully, it should return payment ID, timestamp and then the order is considered as completed so the user can see the estimated delivery time.
 
 ## Services
-    The application is built on micro-service design. The application consists of three modules.
+    The application is built on micro-service design. The application consists of four modules.
     
 * Restaurant
   * User can serch restaurant, and get menu.
