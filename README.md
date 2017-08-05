@@ -17,7 +17,7 @@ Searching restaurants, getting menus, ordering foods and paying for an order.
     The application is built on micro-service design. The application consists of four modules.
     
 * Restaurant
-  * User can serch restaurant, and get menu.
+  * User can search restaurant, and get menu.
 
 * Order
   * User can place order
