@@ -75,11 +75,11 @@ Searching restaurants, getting menus, ordering foods and paying for an order.
 
 * Order
 
-   * xxx.com/orders
+   * xxx.com/order
 
-     * POST: create a list of orders
+     * POST: create a order.
 
-     * GET: passing page and size (optional) as parameters and get list of orders
+     * GET: get a order.
      
 
    * xxx.com/orders/[id]
