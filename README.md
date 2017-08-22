@@ -20,7 +20,7 @@ Searching restaurants, getting menus, ordering foods and paying for an order.
   * User can search restaurant, and get menu.
 
 * Order
-  * User can place order
+  * User can place order.
 
 * Payment
   * User can pay for order.
