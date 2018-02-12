@@ -1,119 +1,154 @@
-# Food-delivery-service
+# Food Delivery Application
 Searching restaurants, getting menus, ordering foods and paying for an order.
-## Functions
-    1.Search a restaurant based on restaurant name.
-    
-    2.Order food by choosing menu items, quantity and adding a note about his/her restrictions.
-    
-    3.User can also fills in delivery address.
-    
-    4.The order should contain food items user ordered, quantity, price and order time.
-    
-    5.User should be able to pay by providing credit card number, expiration date, and security code.
-    
-    6.After payment is made successfully, it should return payment ID, timestamp and then the order is considered as completed so the user can see the estimated delivery time.
 
-## Services
-    The application is built on micro-service design. The application consists of four modules.
-    
-* Restaurant
-  * User can search restaurant, and get menu.
+## Functions:
 
-* Order
-  * User can place order.
+1. Search a restaurant by name
 
-* Payment
-  * User can pay for order.
- 
-* Deliver
-  * User can get payment ID, timestamp, and see the estimated delivery time.
- 
-## Databases
-* Restaurant
+2. Order food by choosing menu items, quantity and adding a note.
 
-  * Relational database
+3. User can also fills in delivery address.
 
-  * Three table - because they are one to many and we can query restaurant info without querying its menu
+4. User should be able to pay.
 
-* Order
+## Services:
 
-  * mongoDB
+The application is built on micro-service design. The application consists of three modules.
 
-  * The reason I used mongoDB is an order can have various number of items in it.
+1. Restaurant
 
-* Payment
+   * You can search restaurant, get menu of it here.
 
-  * Relational database (structured, query by id)
- 
- ## APIs 
- The format of POST request can be found in the test data (Restaurants.json, Orders.json, Payments.json)
+2. Order
 
-* Restaurant
+   * You can place your order here.
 
-  * xxx.com/restaurants
-     
-     * POST: Upload a bunch of restaurants
+3. Payment
 
-     * GET: Passing  page and size (optional) as parameters and get list of restaurants
+   * You can pay your order here.
 
-     * DELETE: Delete all restaurants
-     
-   * xxx.com/restaurants/{restaurantName}
+## Flow:
 
-     * GET: get details of the restaurant according to the name of restaurant
+Query restaurant -> query menu -> query menu items -> place order -> pay the bill -> payment service notify order service
 
-     * DELETE: delete the restaurant
+## Database:
 
-  * xxx.com/restaurants/{restaurantName}/menu
+1. Restaurant
 
-     * POST: Upload a menus of specifical restaurant
+   1. Relational database
 
-     * GET: Passing page and size (optional) as parameters and get a menu, response is food, price and description
+   2. Three table - because they are one to many and we can query restaurant info without querying its menu
 
-     * DELETE: Delete the menu
-     
+2. Order
 
-* Order
-
-   * xxx.com/order
-
-     * POST: create a order.
-
-     * GET: get a order.
-     
-
-   * xxx.com/orders/[id]
-  
-     * GET: get specifical order
-     
-     * DELETE: delete an order by orderId
-
-   * xxx.com/orders/[id]/paid
-
-     * GET: get if order is paid
-
-     * PUT set order paid
-
-   * xxx.com/orders/[id]/cancelled
-
-     * GET: get if the order is cancelled
-
-     * PUT: set cancelled
-
- * Payment
-
-   * xxx.com/payment
-
-     * GET: passing page and size (optional) as parameters and get list of payments
-
-     * POST: create a payment
-
-   * xxx.com/payment/[id]
-
-     * GET: Return payment information
+   1. mongoDB
    
-  Delivery
-    * get: get the estimated delivery time
+   2. The reason I used mongoDB is an order can have various number of items in it.
 
+3. Payment
 
+   1. Relational database (structured, query by id)
+
+## APIs details:
+
+The format of POST request can be found in the test data (Restaurants.json, Orders.json, Payments.json)
+
+1. Restaurant
+   
+    1. foo.com/restaurants
+        
+        1. GET passing name(optional), page and size (optional) as parameters and get list of restaurants
+
+        2. DELETE delete all restaurants
+        
+        3. POST upload a bunch of restaurants
+        
+    2. foo.com/restaurants/[id]
+
+       1. GET get details of the restaurant
  
+       2. DELETE delete the restaurant
+       
+       3. GET /restaurants/[id]/menus to get the menus of the restaurant
+      
+    3. foo.com/menus
+
+       1. POST create a list of menus
+
+       2. GET passing page and size (optional) as parameters and get list of menus
+       
+       3. DELETE delete all menus
+
+    4. foo.com/menus/[id]
+
+       1. GET get info of the menu
+       
+       2. DELETE delete a menu
+
+    5. foo.com/menu_items
+       
+       1. GET passing page and size (optional) as parameters and get list of menu items
+       
+       2. POST upload a list of menu items
+       
+       3. DELETE delete all menu items
+ 
+    3. foo.com/menu_items/[id]
+
+       1. GET menu items by menu id
+       
+       2. DELETE delete a menu item
+       
+       3. GET /menu_items/[id]/price to get the price of it
+
+2. Order
+
+   1. foo.com/orders
+
+      1. POST create a list of orders
+      
+      2. GET passing page and size (optional) as parameters and get list of orders
+
+   2. foo.com/orders/[id]
+
+      1. GET query info
+   
+   3. foo.com/orders/[id]/is_paid
+   
+      1. GET get if the order is paid
+      
+      2. PUT set if it is paid
+   
+   4. foo.com/orders/[id]/is_cancelled
+   
+      1. GET get if the order is cancelled
+      
+      2. PUT set if it is cancelled
+
+3. Payment
+
+   1. foo.com/payment
+
+      1. GET passing page and size (optional) as parameters and get list of payments
+      
+      2. POST create a payment
+      
+   2. foo.com/payment/[id]
+
+      1. GET Return its info
+
+## Guide to upload data with cascading relation
+
+The basic idea is: upload top down in hierarchy.
+
+1. Upload restaurants and get the id from response.
+
+2. Upload menus with the restaurant id they belong to and get the menu id from respons.
+
+3. Upload menu items with the menu id they belong to.
+
+## Order to run
+
+launch restaurant -> upload test data -> launch order -> upload test data -> launch payment
+
+Please note that because we cannot predict id generated by MongoDB, the test data of payment cannot let any order change to payed. The order service will only log a request try to set an inexistent order to payed.
